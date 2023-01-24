@@ -1,7 +1,8 @@
 from flask import Flask
 
-from .ext.db import create_db
 
+from .ext.db import create_db
+from .ext.migration import create_migrate
 
 def create_app():
 
@@ -10,6 +11,7 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 
     db = create_db(app)
+    migrate = create_migrate(app, db)
 
     with app.app_context():
         db.create_all()
