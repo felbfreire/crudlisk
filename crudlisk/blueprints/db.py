@@ -14,7 +14,7 @@ def drop_cur_conn(cursor):
 
 def register_user(**kw):
     cursor = get_cursor()
-    cursor.execute(f"insert into users (username, password) values ('{kw['username']}', '{kw['password']}');")
+    cursor.execute(f"insert into users (username, email,  password) values ('{kw['username']}', '{kw['email']}', '{kw['password']}');")
     drop_cur_conn(cursor)
 
 
