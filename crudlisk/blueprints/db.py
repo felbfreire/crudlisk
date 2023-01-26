@@ -24,3 +24,8 @@ def get_users():
     drop_cur_conn(cursor)
     return users
 
+
+def unsign_user(**kw):
+    cursor = get_cursor()
+    cursor.execute(f"delete from users where username = '{kw['username']}'")
+    drop_cur_conn(cursor)

@@ -28,5 +28,8 @@ def create_app():
     from . blueprints import logoff
     app.register_blueprint(logoff.bp)
 
+    from . blueprints import unsign
+    app.register_blueprint(unsign.bp)
+
     return app
 
