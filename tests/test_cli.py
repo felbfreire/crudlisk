@@ -7,9 +7,17 @@ import pytest
 app = create_app()
 client = app.test_client()
 
+
 def test_get_home(): 
     assert client.get(
             '/',
+            ).status_code == 200
+
+
+def test_register(): 
+    assert client.post(
+            '/register',
+            data={'username': 'test', 'email': 'test@testing.test', 'password': 'test'}
             ).status_code == 200
 
 
@@ -23,4 +31,10 @@ def test_login():
 def test_logoff():
     assert client.get(
             '/logoff',
+            ).status_code == 200
+
+def test_unsign():
+    assert client.post(
+            '/unsign',
+            data={'username': 'test', 'password': 'test'}
             ).status_code == 200
