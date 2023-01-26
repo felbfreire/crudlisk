@@ -38,3 +38,4 @@ $ flask run
 	register -> localhost:5000/register
 	login -> localhost:5000/login
 	login -> localhost:5000/logoff
+	unsign -> localhost:5000/unsign
